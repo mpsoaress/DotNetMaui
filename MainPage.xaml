@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+            <Image
+                Source="dotnet_bot.png"
+                HeightRequest="185"
+                Aspect="AspectFit"
+                SemanticProperties.Description="dot net bot in a race car number eight" />
+
+            <Label
+                Text=".NET MAUI Framework"
+                Style="{StaticResource Headline}"
+                SemanticProperties.HeadingLevel="Level1" />
+
+            <Label
+                Text="Bem vindo a aplicação de teste do .NET MAUI"
+                Style="{StaticResource SubHeadline}"
+                SemanticProperties.HeadingLevel="Level2"
+                SemanticProperties.Description="Welcome to dot net Multi platform App U I" />
+
+            <Button
+                x:Name="CriarBDBtn"
+                Text="Criar Banco de Dados" 
+                HorizontalOptions="Fill" 
+                Clicked="CriarBDBtn_Clicked"/>
+
+            <VerticalStackLayout x:Name="Operacoes" IsVisible="false">
+                <Entry x:Name="IdEnt" Keyboard="Numeric" Placeholder="Informe o ID" />
+                <Entry x:Name="NomeEnt" Placeholder="Informe seu Nome" />
+                <Entry x:Name="CpfEnt" Keyboard="Numeric" Placeholder="Informe seu CPF" />
+
+            <HorizontalStackLayout HorizontalOptions="Center"  Spacing="25">
+                <Button
+                        x:Name="InserirBtn"
+                        Text="Inserir"
+                        Clicked="InserirBtn_Clicked"
+                        HorizontalOptions="Fill" />
+            
+                <Button
+                        x:Name="AlterarBtn"
+                        Text="Alterar"
+                        Clicked="AlterarBtn_Clicked"
+                        HorizontalOptions="Fill" />
+                <Button
+                        x:Name="ExcluirBtn"
+                        Text="Excluir" 
+                        Clicked="ExcluirBtn_Clicked"
+                        HorizontalOptions="Fill" />
+                <Button
+                        x:Name="LocBtn"
+                        Text="Localizar"
+                        Clicked="LocBtn_Clicked"
+                        HorizontalOptions="Fill" />
+                <Button
+                        x:Name="ListaBtn"
+                        Text="Listar"
+                        Clicked="ListaBtn_Clicked"
+                        HorizontalOptions="Fill" />
+            </HorizontalStackLayout>
+            
+            <CollectionView x:Name="ListaCv" >
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="2*" />
+                                    <ColumnDefinition Width="3*" />
+                                
+                            </Grid.ColumnDefinitions>
+
+                            <Label Text="{Binding Id}" >
+                                    
+                                </Label>
+
+                                <Label Grid.Column="1" Text="{Binding Nome}" >
+                                    
+                            </Label>
+                            
+                                <Label Grid.Column="3" Text="{Binding Cpf}" >
+
+                                </Label>
+                            
+                            </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            
+        </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
